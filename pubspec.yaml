@@ -34,6 +34,12 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.8
+  riverpod: ^2.6.1
+  flutter_riverpod: ^2.6.1
+  video_player: ^2.10.0
+  webview_flutter: ^4.13.0
+  dio: ^5.8.0+1
+  image_picker: ^1.1.2
 
 dev_dependencies:
   flutter_test:
@@ -56,6 +62,14 @@ flutter:
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
+
+  fonts:
+    - family: Pretendard
+      fonts:
+        - asset: assets/fonts/Pretendard-Medium.otf
+          weight: 400
+        - asset: assets/fonts/Pretendard-SemiBold.otf
+          weight: 600
 
   # To add assets to your application, add an assets section, like this:
   # assets:
