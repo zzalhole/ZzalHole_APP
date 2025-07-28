@@ -56,7 +56,7 @@ class BaseBottomNavigationBar extends ConsumerWidget {
               onTap: () => notifier.setCurrentIndex(1),
             ),
             _NavItem(
-              icon: Icons.square,
+              image: AssetImage('assets/spa.png'),
               label: "구덩이생성",
               index: 2,
               currentIndex: currentIndex,
@@ -70,14 +70,16 @@ class BaseBottomNavigationBar extends ConsumerWidget {
 }
 
 class _NavItem extends StatelessWidget {
-  final IconData icon;
+  final IconData? icon;
+  final ImageProvider? image;
   final String label;
   final int index;
   final int currentIndex;
   final VoidCallback onTap;
 
   const _NavItem({
-    required this.icon,
+    this.icon,
+    this.image,
     required this.label,
     required this.index,
     required this.currentIndex,
@@ -98,7 +100,16 @@ class _NavItem extends StatelessWidget {
         children: [
           AnimatedContainer(
             duration: Duration(milliseconds: 200),
-            child: Icon(icon, size: isSelected ? 26 : 22, color: color),
+            child: icon != null
+                ? Icon(icon, size: isSelected ? 26 : 22, color: color)
+                : image != null
+                ? Image(
+                    image: image!,
+                    width: isSelected ? 26 : 22,
+                    height: isSelected ? 26 : 22,
+                    color: color,
+                  )
+                : SizedBox(),
           ),
           AnimatedDefaultTextStyle(
             duration: Duration(milliseconds: 200),
